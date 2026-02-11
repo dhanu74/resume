@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dhananjay Rupanwar — Neon Portfolio Resume</title>
+<style>
+:root{
+  --bg-deep:#070014;
+  --bg-mid:#18002a;
+  --bg-soft:#26003d;
+  --glass:rgba(255,255,255,.06);
+  --pink:#ff3ad9;
+  --purple:#a05cff;
+  --blue:#3affff;
+  --text:#f7eaff;
+}
+*{box-sizing:border-box;scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  background:radial-gradient(1400px 700px at top left,#26003d,#120020 40%,#070014 75%),
+             linear-gradient(180deg, #0b0018 0%, #070014 100%);
+  color:var(--text);
+}
+/* floating mesh */
+body::before{
+  content:"";position:fixed;inset:0;
+  background:
+   linear-gradient(rgba(255,58,217,.03) 1px, transparent 1px) 0 0/60px 60px,
+   linear-gradient(90deg, rgba(58,255,255,.03) 1px, transparent 1px) 0 0/60px 60px;
+  animation:drift 20s linear infinite;pointer-events:none;
+}
+@keyframes drift{to{background-position:50px 50px;}}
+
+/* Layout */
+.app{display:grid;grid-template-columns:320px 1fr;min-height:100vh;}
+@media(max-width:900px){.app{grid-template-columns:1fr;}}
+
+.sidebar{
+  background:linear-gradient(180deg,#18002a,#0b0018);
+  border-right:1px solid rgba(255,255,255,.08);
+  padding:28px 22px;position:sticky;top:0;height:100vh;
+}
+.avatar{
+  width:120px;height:120px;margin:0 auto 16px;border-radius:50%;
+  background:linear-gradient(45deg,var(--pink),var(--purple),var(--blue));
+  display:grid;place-items:center;font-size:42px;font-weight:900;
+  box-shadow:0 0 30px rgba(255,58,217,.35), 0 0 20px rgba(58,255,255,.25);
+}
+.name{font-size:1.6rem;text-align:center;margin:8px 0 4px;}
+.tagline{text-align:center;opacity:.85;font-size:.95rem;}
+.contact{font-size:.9rem;margin-top:16px;line-height:1.6;}
+.contact a{color:var(--pink);text-decoration:none;}
+
+.nav{margin-top:24px;display:flex;flex-direction:column;gap:10px;}
+.nav a{
+  padding:10px 12px;border-radius:10px;
+  background:rgba(255,255,255,.05);
+  color:var(--text);text-decoration:none;font-weight:600;
+  transition:.25s;
+}
+.nav a:hover{background:rgba(255,255,255,.12);transform:translateX(4px);}
+/* ----- SIDEBAR HIGHLIGHT WHEN SECTION IS HOVERED ----- */
+.nav a.active{
+  background:linear-gradient(90deg,rgba(58,255,255,.18),rgba(255,58,217,.18));
+  box-shadow:0 0 12px rgba(58,255,255,.25), 0 0 12px rgba(255,58,217,.25);
+  transform:translateX(6px);
+}
+
+.main{padding:36px 28px;display:flex;flex-direction:column;gap:36px;}
+section{max-width:900px;}
+
+/* --- CURSOR-TRACKING HIGHLIGHT CARDS --- */
+.card{
+  --mx:50%; --my:50%; /* mouse position inside card */
+  background:radial-gradient(650px 450px at var(--mx) var(--my), rgba(58,255,255,.12), rgba(255,58,217,.08) 45%, var(--glass) 65%);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:18px;padding:20px 22px;
+  box-shadow:0 15px 35px rgba(0,0,0,.35);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.card:hover{
+  transform:translateY(-2px) scale(1.01);
+  box-shadow:0 0 28px rgba(58,255,255,.28), 0 0 20px rgba(255,58,217,.28);
+}
+
+h2{margin:0 0 10px;font-size:1.25rem;
+  background:linear-gradient(90deg,var(--blue),var(--pink),var(--purple));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+
+/* Skills grid */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.skill{
+  background:rgba(255,255,255,.06);
+  padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,.08);
+}
+
+/* Project timeline */
+.timeline{display:grid;gap:16px;}
+.item{display:grid;grid-template-columns:110px 1fr;gap:12px;}
+.year{font-weight:700;color:var(--pink);}
+
+/* Download button */
+.download-btn{
+  position:fixed;bottom:22px;right:22px;
+  padding:12px 16px;border-radius:30px;border:none;
+  background:linear-gradient(90deg,var(--blue),var(--pink),var(--purple));
+  color:#000;font-weight:700;cursor:pointer;
+  box-shadow:0 10px 25px rgba(58,255,255,.3), 0 8px 20px rgba(255,58,217,.25);
+  transition:.3s ease;
+}
+.download-btn:hover{transform:translateY(-3px) scale(1.05);}
+
+footer{text-align:center;opacity:.7;font-size:.85rem;}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="avatar">DR</div>
+    <div class="name">Dhananjay Rupanwar</div>
+    <div class="tagline">Embedded • IoT • Web • AI</div>
+
+    <div class="contact">
+      📞 <a href="tel:+919529634073">+91 95296 34073</a><br>
+      📧 <a href="mailto:dhananjayru74@gmail.com">dhananjayru74@gmail.com</a><br>
+      🔗 <a href="https://www.linkedin.com/in/dhananjay-rupanwar-498827299" target="_blank">LinkedIn</a><br>
+      💻 <a href="https://github.com/dhanu74" target="_blank">GitHub</a>
+    </div>
+
+    <nav class="nav">
+      <a data-target="about" href="#about">About</a>
+      <a data-target="education" href="#education">Education</a>
+      <a data-target="projects" href="#projects">Projects</a>
+      <a data-target="skills" href="#skills">Skills</a>
+      <a data-target="experience" href="#experience">Experience</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      Motivated Computer Engineering student who builds real hardware, wireless systems, and modern web tools. I enjoy turning ideas into working prototypes and exploring long‑range communication, automation, and AI applications.
+    </section>
+
+    <section id="education" class="card">
+      <h2>Education</h2>
+      <div class="timeline">
+        <div class="item"><div class="year">2021–Present</div><div>MIT Academy of Engineering, Pune — B.Tech Computer Engineering (CGPA 6.5)</div></div>
+        <div class="item"><div class="year">2021</div><div>HSC — Bhairavnath Vidyalaya Khutbav</div></div>
+        <div class="item"><div class="year">2018</div><div>SSC — Javaharlal Vidyalay Kedgaon</div></div>
+      </div>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>Key Projects</h2>
+      <div class="timeline">
+        <div class="item"><div class="year">2022</div><div><b>Automatic Floor Cleaner</b> — Arduino Uno, Embedded C, Sensors. Semi‑autonomous dry & wet cleaning with obstacle detection.</div></div>
+        <div class="item"><div class="year">2023</div><div><b>Remote Motor Starter (1 km)</b> — Arduino Nano + nRF24L01, relay control of 3‑phase motor with safety isolation.</div></div>
+        <div class="item"><div class="year">2024</div><div><b>Indian Law Chatbot</b> — Python, Flask, NLP, HTML/CSS for legal awareness and FAQs.</div></div>
+      </div>
+    </section>
+
+    <section id="skills" class="card">
+      <h2>Technical Skills</h2>
+      <div class="skills">
+        <div class="skill">Java</div>
+        <div class="skill">C / Embedded C</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">HTML & CSS</div>
+        <div class="skill">SQL / NoSQL</div>
+        <div class="skill">React</div>
+        <div class="skill">Node.js</div>
+        <div class="skill">Git & GitHub</div>
+        <div class="skill">IoT & Sensors</div>
+        <div class="skill">Wireless (nRF24)</div>
+      </div>
+    </section>
+
+    <section id="experience" class="card">
+      <h2>Experience</h2>
+      Academic Project‑Based Learning, MITAOE (2021–Present): Hands‑on embedded & IoT systems, wireless control, and practical C/Python development.
+    </section>
+
+    <footer>© 2026 Dhananjay Rupanwar • Neon Glass Resume</footer>
+  </main>
+</div>
+
+<button class="download-btn" onclick="downloadResume()">Download Resume (PDF)</button>
+<script>
+function downloadResume(){
+  const a=document.createElement('a');
+  a.href='resume.pdf';
+  a.download='Dhananjay_Rupanwar_Resume.pdf';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+}
+
+// --- CURSOR TRACKING ON CARDS ---
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mx', x + '%');
+    card.style.setProperty('--my', y + '%');
+  });
+});
+
+// --- HIGHLIGHT SIDEBAR TITLE WHEN HOVERING SECTION ---
+const navLinks = document.querySelectorAll('.nav a');
+const sections = document.querySelectorAll('section');
+
+sections.forEach(sec => {
+  sec.addEventListener('mouseenter', () => {
+    navLinks.forEach(a => a.classList.remove('active'));
+    const link = document.querySelector(`.nav a[data-target="${sec.id}"]`);
+    if(link) link.classList.add('active');
+  });
+  sec.addEventListener('mouseleave', () => {
+    navLinks.forEach(a => a.classList.remove('active'));
+  });
+});
+</script>
+</body>
+</html>
